@@ -20,7 +20,7 @@ Overall, our real-time stock market predictor will provide investors with a reli
 
 ----
 
-<h3>A list of the required modules used in the code and the command to install them using pip :</h3>
+<h3>A list of the required modules used in the code and the command to install them using pip:</h3>
 
 ```
 pip install numpy
