@@ -1,3 +1,5 @@
+import streamlit.components.v1 as components
+from keras.models import load_model
 import numpy as np
 import pandas as pd
 import yfinance as yf
@@ -12,7 +14,7 @@ from streamlit_lottie import st_lottie
 
 
 start = '2010-01-01'
-end = '2023-04-10'
+end = '2023-04-13'
 
 
 def main():
@@ -89,7 +91,7 @@ col1,col2 =st.columns(2)
 with col1:
     st_lottie(lottie_stocks2)   
 with col2:
-    user_input = st.text_input('Enter a Valid stock Ticker', 'AAPL')
+    user_input = st.text_input('Enter a Valid stock Ticker', 'TSLA')
     df = yf.download(user_input, start, end)
     st.subheader('Data from 2010 - 2023')
     st.write(df.describe())
@@ -98,6 +100,7 @@ with col2:
 
 st.subheader('- Closing Price')
 st.write("The closing price is reported by stock exchanges at the end of each trading day and is widely available through financial news outlets, online trading platforms, and other financial resources. It is important for investors to keep track of the closing price of stocks they are interested in to make informed investment decisions.")
+
 fig = go.Figure()
 fig.add_trace(go.Scatter(x=df.index, y=df.Close, mode='lines'))
 fig.update_layout(title='Closing Price vs Time Chart',
@@ -105,33 +108,36 @@ fig.update_layout(title='Closing Price vs Time Chart',
                   yaxis_title='Price',
                   width=1000,
                   height=600)
-st.plotly_chart(fig)
+st.plotly_chart(fig, use_container_width=True)
 
-# st.subheader('Closing Price vs Time Chart with 100MA')
-ma100 = df.Close.rolling(100).mean()
-fig = go.Figure()
-fig.add_trace(go.Scatter(x=df.index, y=ma100, mode='lines', name='MA100'))
-fig.add_trace(go.Scatter(x=df.index, y=df.Close, mode='lines', name='Close'))
-fig.update_layout(title='Closing Price vs Time Chart with 100MA',
+c1,c2=st.columns(2)
+
+with c1:
+    ma100 = df.Close.rolling(100).mean()
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=df.index, y=ma100, mode='lines', name='MA100'))
+    fig.add_trace(go.Scatter(x=df.index, y=df.Close, mode='lines', name='Close'))
+    fig.update_layout(title='Closing Price vs Time Chart with 100MA',
                   xaxis_title='Date',
                   yaxis_title='Price',
                   width=1000,
                   height=600)
-st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
 
-# st.subheader('Closing Price vs Time Chart with 100MA & 200MA')
-ma100 = df.Close.rolling(100).mean()
-ma200 = df.Close.rolling(200).mean()
-fig = go.Figure()
-fig.add_trace(go.Scatter(x=df.index, y=ma100, mode='lines', name='MA100'))
-fig.add_trace(go.Scatter(x=df.index, y=ma200, mode='lines', name='MA200'))
-fig.add_trace(go.Scatter(x=df.index, y=df.Close, mode='lines', name='Close'))
-fig.update_layout(title='Closing Price vs Time Chart with 100MA & 200MA',
+with c2:
+    ma100 = df.Close.rolling(100).mean()
+    ma200 = df.Close.rolling(200).mean()
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=df.index, y=ma100, mode='lines', name='MA100'))
+    fig.add_trace(go.Scatter(x=df.index, y=ma200, mode='lines', name='MA200'))
+    fig.add_trace(go.Scatter(x=df.index, y=df.Close, mode='lines', name='Close'))
+    fig.update_layout(title='Closing Price vs Time Chart with 100MA & 200MA',
                   xaxis_title='Date',
                   yaxis_title='Price',
                   width=1000,
                   height=600)
-st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
+
 
 data_training = pd.DataFrame(df['Close'][0:int(len(df)*70)])
 data_testing = pd.DataFrame(df['Close'][int(len(df)*0.70):int(len(df))])
@@ -180,15 +186,21 @@ fig2 = go.Figure()
 fig2.add_trace(go.Scatter(
     x=df.index[int(len(df)*0.70):], y=y_test, name='Original Price'))
 fig2.add_trace(go.Scatter(x=df.index[int(len(df)*0.70):], y=y_predict[:, 0], name='Predict'))
-fig2.update_layout(title='Original VS predicted',
+fig2.update_layout(
                    xaxis_title='Date',
                    yaxis_title='Price',
                    width=1000,
                    height=600)
 
-st.plotly_chart(fig2)
+st.plotly_chart(fig2, use_container_width=True)
 
-# prediction 
+
+# Load the trained model
+
+# model = load_model('keras_model.h5')
+
+# Get the last 100 days of historical data from the testing dataset
+
 last_100_days = data_testing[-100:].values
 
 # Instantiate a scaler object and fit_transform the data
@@ -212,6 +224,38 @@ predicted_prices = np.array(predicted_prices)
 predicted_prices = predicted_prices.reshape(
     predicted_prices.shape[0], predicted_prices.shape[2])
 predicted_prices = scaler.inverse_transform(predicted_prices)
+
+st.header('- Prediction')
 st.write('Predicted price for the next day:', predicted_prices[0][0])
 
-   
+st.subheader('- Project Description')
+st.write("This is a Python script for a web application that uses deep learning techniques to predict stock prices. The script uses the Keras library for deep learning, Streamlit for the web interface, Pandas and Pandas Datareader for data handling, Plotly for data visualization, and requests for HTTP requests.")
+st.write("The application displays general information about the stock market, including how it works, and allows users to enter a stock ticker to retrieve historical data from Yahoo Finance. The data is then used to generate charts displaying the stock's closing price over time, as well as charts with moving averages to provide a more comprehensive analysis of the stock's performance.")
+st.write("The application uses a deep learning model to predict future stock prices based on historical data. The model is trained on a dataset of historical stock prices and is loaded into the application using Keras. The predicted values are then plotted alongside the historical data to provide users with a visual representation of the predicted trend.")
+st.write("The web application also includes interactive elements, such as text input fields and lottie animations, to make the user experience more engaging. The app is responsive and can be accessed on different devices.")
+
+st.markdown("<hr>", unsafe_allow_html=True)
+
+st.header("- About US")
+
+col1,padding, col2 = st.columns((10,2,10))
+with col1:
+    st.subheader(':chart_with_upwards_trend: Predictbay')
+    st.markdown("<p style= font-size:18px; >Looking to stay one step ahead of the stock market game? Look no further than our cutting-edge stock market prediction project! Using advanced algorithms and time-series data analysis, our platform provides predictions on stock prices, along with clear, easy-to-read graphs that make it simple to understand market trends. Simply enter your desired ticker symbol and watch as our platform works its magic, delivering accurate insights into future stock prices that you can rely on. Stay ahead of the curve and make informed investment decisions with our stock market prediction project.</p>", unsafe_allow_html=True)
+
+with col2:
+    st.subheader('Our Team')
+    cols1,cols2,cols3,cols4=st.columns(4)
+    with cols1:
+        st.markdown("<p style= font-size:15px;>Deepraj Bera</p><p style= font-size:10px;>Full stack Web Developer</p><a href='https://github.com/deepraj21/Realtime-Stock-Predictor'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown("<p style= font-size:15px;>Abhishek Mallick</p><p style= font-size:10px;>ML | Full stack</p><a href='https://github.com/Abhishek-Mallick'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
+        st.markdown("<br>", unsafe_allow_html=True)
+    with cols2:
+        st.markdown("<p style= font-size:15px;>Mayukh Mandal</p><p style= font-size:10px;>Python | Coder </p><a href='https://github.com/Mayukh026'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown("<p style= font-size:15px;>Harshit Mania</p><p style= font-size:10px;>React Developer</p><a href='#'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
+      
+
+st.markdown("<br><br>",unsafe_allow_html=True)
+st.markdown("<center><p>© 2023 Predictbay</p><center>",unsafe_allow_html=True)
