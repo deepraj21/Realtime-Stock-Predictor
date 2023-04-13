@@ -188,4 +188,30 @@ fig2.update_layout(title='Original VS predicted',
 
 st.plotly_chart(fig2)
 
+# prediction 
+last_100_days = data_testing[-100:].values
+
+# Instantiate a scaler object and fit_transform the data
+scaler = MinMaxScaler()
+last_100_days_scaled = scaler.fit_transform(last_100_days)
+
+# Create an empty list to store the predicted prices
+predicted_prices = []
+
+# Make predictions for the next day using the last 100 days of data
+for i in range(1):
+    X_test = np.array([last_100_days_scaled])
+    X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
+    predicted_price = model.predict(X_test)
+    predicted_prices.append(predicted_price)
+    last_100_days_scaled = np.append(last_100_days_scaled, predicted_price)
+    last_100_days_scaled = np.delete(last_100_days_scaled, 0)
+
+# Invert the scaling of the predicted price
+predicted_prices = np.array(predicted_prices)
+predicted_prices = predicted_prices.reshape(
+    predicted_prices.shape[0], predicted_prices.shape[2])
+predicted_prices = scaler.inverse_transform(predicted_prices)
+st.write('Predicted price for the next day:', predicted_prices[0][0])
+
    
