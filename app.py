@@ -78,14 +78,21 @@ st.markdown("<hr>", unsafe_allow_html=True)
 left_col, right_col = st.columns(2)
 with left_col:
     st.subheader('- Project Description')
-    st.write("This is a Python script for a web application that uses deep learning techniques to predict stock prices. The script uses the Keras library for deep learning, Streamlit for the web interface, Pandas and Pandas Datareader for data handling, Plotly for data visualization, and requests for HTTP requests.")
-    st.write("The application displays general information about the stock market, including how it works, and allows users to enter a stock ticker to retrieve historical data from Yahoo Finance. The data is then used to generate charts displaying the stock's closing price over time, as well as charts with moving averages to provide a more comprehensive analysis of the stock's performance.")
-    st.write("The application uses a deep learning model to predict future stock prices based on historical data. The model is trained on a dataset of historical stock prices and is loaded into the application using Keras. The predicted values are then plotted alongside the historical data to provide users with a visual representation of the predicted trend.")
-    st.write("The web application also includes interactive elements, such as text input fields and lottie animations, to make the user experience more engaging. The app is responsive and can be accessed on different devices.")
+    st.markdown("<p style= font-size:19px;>This is a Python script for a web application that uses deep learning techniques to predict stock prices. The script uses the Keras library for deep learning, Streamlit for the web interface, Pandas and Pandas Datareader for data handling, Plotly for data visualization, and requests for HTTP requests.</p>", unsafe_allow_html=True)
+    st.markdown("<p style= font-size:19px;>The application displays general information about the stock market, including how it works, and allows users to enter a stock ticker to retrieve historical data from Yahoo Finance. The data is then used to generate charts displaying the stock's closing price over time, as well as charts with moving averages to provide a more comprehensive analysis of the stock's performance.</p>", unsafe_allow_html=True)
+    st.markdown("<p style= font-size:19px;>The application uses a deep learning model to predict future stock prices based on historical data. The model is trained on a dataset of historical stock prices and is loaded into the application using Keras. The predicted values are then plotted alongside the historical data to provide users with a visual representation of the predicted trend.</p>", unsafe_allow_html=True)
+    st.markdown("<p style= font-size:19px;>The web application also includes interactive elements, such as text input fields and lottie animations, to make the user experience more engaging. The app is responsive and can be accessed on different devices.</p>", unsafe_allow_html=True)
 # Add a stock image in the right column
 with right_col:
     st_lottie(lottie_stocks)
 
+st.subheader("- What is the stock market?")
+st.write("The stock market is a place where publicly traded companies' stocks or shares are bought and sold. Investors purchase stocks in the hope of making a profit, either by selling them at a higher price or by earning dividends on their investment.")
+st.subheader("- How does the stock market work?")
+st.write("Companies issue stocks when they want to raise capital, or money, to fund their operations or expansion plans. These stocks are then traded on stock exchanges, which are platforms where buyers and sellers can trade stocks.")
+st.write("The price of a stock is determined by supply and demand. If there are more buyers than sellers, the price of the stock goes up. If there are more sellers than buyers, the price of the stock goes down.")
+
+st.markdown("<br><br>",unsafe_allow_html=True)
 
 col1,col2 =st.columns(2)
 with col1:
