@@ -10,11 +10,12 @@ from tensorflow.keras.models import load_model
 import plotly.graph_objs as go
 import plotly.express as px
 import requests
+from datetime import datetime
 from streamlit_lottie import st_lottie
 
 
 start = '2010-01-01'
-end = '2023-04-13'
+end = datetime.now()
 
 
 def main():
@@ -246,9 +247,9 @@ with col2:
         st.markdown("<p style= font-size:15px;>Abhishek Mallick</p><p style= font-size:10px;>ML | Full stack</p><a href='https://github.com/Abhishek-Mallick'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
     with cols2:
-        st.markdown("<p style= font-size:15px;>Mayukh Mandal</p><p style= font-size:10px;>Python | Coder </p><a href='https://github.com/Mayukh026'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
+        st.markdown("<p style= font-size:15px;>Mayukh Mondal</p><p style= font-size:10px;>Python | Coder </p><a href='https://github.com/Mayukh026'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
-        st.markdown("<p style= font-size:15px;>Harshit Mania</p><p style= font-size:10px;>React Developer</p><a href='#'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
+        st.markdown("<p style= font-size:15px;>Harshit Mania</p><p style= font-size:10px;>React Developer</p><a href='https://github.com/Harshitm14'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
       
 
 st.markdown("<br><br>",unsafe_allow_html=True)
