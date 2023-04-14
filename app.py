@@ -241,7 +241,7 @@ with col2:
     st.subheader('Our Team')
     cols1,cols2,cols3,cols4=st.columns(4)
     with cols1:
-        st.markdown("<p style= font-size:15px;>Deepraj Bera</p><p style= font-size:10px;>Full stack Web Developer</p><a href='https://github.com/deepraj21/Realtime-Stock-Predictor'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
+        st.markdown("<p style= font-size:15px;>Deepraj Bera</p><p style= font-size:10px;>Full stack Web Developer</p><a href='https://github.com/deepraj21'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
         st.markdown("<p style= font-size:15px;>Abhishek Mallick</p><p style= font-size:10px;>ML | Full stack</p><a href='https://github.com/Abhishek-Mallick'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
