@@ -77,11 +77,11 @@ st.markdown("<a href='https://github.com/deepraj21/Realtime-Stock-Predictor'><im
 st.markdown("<hr>", unsafe_allow_html=True)
 left_col, right_col = st.columns(2)
 with left_col:
-    st.subheader("- What is the stock market?")
-    st.write("The stock market is a place where publicly traded companies' stocks or shares are bought and sold. Investors purchase stocks in the hope of making a profit, either by selling them at a higher price or by earning dividends on their investment.")
-    st.subheader("- How does the stock market work?")
-    st.write("Companies issue stocks when they want to raise capital, or money, to fund their operations or expansion plans. These stocks are then traded on stock exchanges, which are platforms where buyers and sellers can trade stocks.")
-    st.write("The price of a stock is determined by supply and demand. If there are more buyers than sellers, the price of the stock goes up. If there are more sellers than buyers, the price of the stock goes down.")
+    st.subheader('- Project Description')
+    st.write("This is a Python script for a web application that uses deep learning techniques to predict stock prices. The script uses the Keras library for deep learning, Streamlit for the web interface, Pandas and Pandas Datareader for data handling, Plotly for data visualization, and requests for HTTP requests.")
+    st.write("The application displays general information about the stock market, including how it works, and allows users to enter a stock ticker to retrieve historical data from Yahoo Finance. The data is then used to generate charts displaying the stock's closing price over time, as well as charts with moving averages to provide a more comprehensive analysis of the stock's performance.")
+    st.write("The application uses a deep learning model to predict future stock prices based on historical data. The model is trained on a dataset of historical stock prices and is loaded into the application using Keras. The predicted values are then plotted alongside the historical data to provide users with a visual representation of the predicted trend.")
+    st.write("The web application also includes interactive elements, such as text input fields and lottie animations, to make the user experience more engaging. The app is responsive and can be accessed on different devices.")
 # Add a stock image in the right column
 with right_col:
     st_lottie(lottie_stocks)
@@ -194,13 +194,6 @@ fig2.update_layout(
 
 st.plotly_chart(fig2, use_container_width=True)
 
-
-# Load the trained model
-
-# model = load_model('keras_model.h5')
-
-# Get the last 100 days of historical data from the testing dataset
-
 last_100_days = data_testing[-100:].values
 
 # Instantiate a scaler object and fit_transform the data
@@ -228,12 +221,6 @@ predicted_prices = scaler.inverse_transform(predicted_prices)
 st.header('- Prediction')
 st.write('Predicted price for the next day:', predicted_prices[0][0])
 
-st.subheader('- Project Description')
-st.write("This is a Python script for a web application that uses deep learning techniques to predict stock prices. The script uses the Keras library for deep learning, Streamlit for the web interface, Pandas and Pandas Datareader for data handling, Plotly for data visualization, and requests for HTTP requests.")
-st.write("The application displays general information about the stock market, including how it works, and allows users to enter a stock ticker to retrieve historical data from Yahoo Finance. The data is then used to generate charts displaying the stock's closing price over time, as well as charts with moving averages to provide a more comprehensive analysis of the stock's performance.")
-st.write("The application uses a deep learning model to predict future stock prices based on historical data. The model is trained on a dataset of historical stock prices and is loaded into the application using Keras. The predicted values are then plotted alongside the historical data to provide users with a visual representation of the predicted trend.")
-st.write("The web application also includes interactive elements, such as text input fields and lottie animations, to make the user experience more engaging. The app is responsive and can be accessed on different devices.")
-
 st.markdown("<hr>", unsafe_allow_html=True)
 
 st.header("- About US")
@@ -252,7 +239,7 @@ with col2:
         st.markdown("<p style= font-size:15px;>Abhishek Mallick</p><p style= font-size:10px;>ML | Full stack</p><a href='https://github.com/Abhishek-Mallick'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
     with cols2:
-        st.markdown("<p style= font-size:15px;>Mayukh Mondal</p><p style= font-size:10px;>Python | Coder </p><a href='https://github.com/Mayukh026'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
+        st.markdown("<p style= font-size:15px;>Mayukh Mandal</p><p style= font-size:10px;>Python | Coder </p><a href='https://github.com/Mayukh026'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
         st.markdown("<p style= font-size:15px;>Harshit Mania</p><p style= font-size:10px;>React Developer</p><a href='#'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
       
