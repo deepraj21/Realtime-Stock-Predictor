@@ -35,6 +35,7 @@ pip install tensorflow
 pip install plotly
 pip install requests
 pip install streamlit-lottie
+pip install datetime
 ```
 
 <img src="templates/image1.png">
