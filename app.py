@@ -252,7 +252,7 @@ with col2:
         st.markdown("<p style= font-size:15px;>Abhishek Mallick</p><p style= font-size:10px;>ML | Full stack</p><a href='https://github.com/Abhishek-Mallick'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
     with cols2:
-        st.markdown("<p style= font-size:15px;>Mayukh Mandal</p><p style= font-size:10px;>Python | Coder </p><a href='https://github.com/Mayukh026'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
+        st.markdown("<p style= font-size:15px;>Mayukh Mondal</p><p style= font-size:10px;>Python | Coder </p><a href='https://github.com/Mayukh026'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
         st.markdown("<p style= font-size:15px;>Harshit Mania</p><p style= font-size:10px;>React Developer</p><a href='#'><img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white' alt='GitHub'></a>", unsafe_allow_html=True)
       
