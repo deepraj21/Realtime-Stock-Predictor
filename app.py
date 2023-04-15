@@ -20,10 +20,19 @@ end = datetime.now()
 
 
 def main():
-    st.set_page_config(page_title="My Streamlit App",page_icon=":chart_with_upwards_trend:" ,layout="wide")
+    st.set_page_config(page_title="Predictbay",page_icon=":chart_with_upwards_trend:" ,layout="wide")
 
 if __name__ == "__main__":
     main()
+
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
 css = '''
 h1 {
