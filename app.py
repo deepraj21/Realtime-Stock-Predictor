@@ -98,7 +98,7 @@ st.markdown("<a href='https://github.com/deepraj21/Realtime-Stock-Predictor'><im
 st.markdown("<hr>", unsafe_allow_html=True)
 left_col, right_col = st.columns(2)
 with left_col:
-    st.subheader('- Project Description~')
+    st.subheader('- Project Description')
     st.markdown("<p style= font-size:19px;>This is a Python script for a web application that uses deep learning techniques to predict stock prices. The script uses the Keras library for deep learning, Streamlit for the web interface, Pandas and Pandas Datareader for data handling, Plotly for data visualization, and requests for HTTP requests.</p>", unsafe_allow_html=True)
     st.markdown("<p style= font-size:19px;>The application displays general information about the stock market, including how it works, and allows users to enter a stock ticker to retrieve historical data from Yahoo Finance. The data is then used to generate charts displaying the stock's closing price over time, as well as charts with moving averages to provide a more comprehensive analysis of the stock's performance.</p>", unsafe_allow_html=True)
     st.markdown("<p style= font-size:19px;>The application uses a deep learning model to predict future stock prices based on historical data. The model is trained on a dataset of historical stock prices and is loaded into the application using Keras. The predicted values are then plotted alongside the historical data to provide users with a visual representation of the predicted trend.</p>", unsafe_allow_html=True)
