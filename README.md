@@ -1,5 +1,3 @@
-<h1>Solving for India (Hackathon Series)</h1>
-<h2>Project Theme : Fintech</h2>
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://deepraj21-realtime-stock-predictor-app-fhpeiz.streamlit.app/)
 
