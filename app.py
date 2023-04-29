@@ -119,7 +119,7 @@ col1,col2 =st.columns(2)
 with col1:
     st_lottie(lottie_stocks2)   
 with col2:
-    user_input = st.text_input('Enter a Valid stock Ticker', 'GOOGL')
+    user_input = st.text_input('Enter a Valid stock Ticker', 'AAPL')
     try:
         df = get_data(user_input, start, end)
         st.subheader('Data from 2010 - 2023')
