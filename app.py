@@ -14,7 +14,7 @@ from datetime import datetime
 from streamlit_lottie import st_lottie
 from yfinance import shared
 
-
+ 
 start = '2010-01-01'
 end = datetime.now()
 
